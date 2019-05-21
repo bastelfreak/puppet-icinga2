@@ -51,7 +51,7 @@
 #   Fingerprint of the CA host certificate for validation. Requires pki is set to `icinga2`.
 #   You can get the fingerprint via 'openssl x509 -noout -fingerprint -sha1 -inform pem -in [certificate-file.crt]'
 #   on your CA host.
-# 
+#
 # [*ticket_salt*]
 #   Salt to use for ticket generation. The salt is stored to api.conf if none or ca is chosen for pki.
 #   Defaults to constant TicketSalt.

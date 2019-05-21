@@ -18,7 +18,7 @@
 #   User as the icinga process runs.
 #   CAUTION: This does not manage the user context for the runnig icinga 2 process!
 #   The parameter is only used for ownership of files or directories.
-#   
+#
 # [*group*]
 #   Group as the icinga process runs.
 #   CAUTION: This does not manage the group context for the runnig icinga 2 process!
@@ -26,13 +26,13 @@
 #
 # [*ido_mysql_package_name*]
 #   The name of the icinga package that's needed for MySQL.
-#   
+#
 # [*ido_mysql_schema*]
 #   Path to the MySQL schema to import.
 #
 # [*ido_pgsql_package_name*]
 #   The name of the icinga package that's needed for Postrgesql.
-#   
+#
 # [*ido_pgsql_schema*]
 #   Path to the Postgresql schema to import.
 #
