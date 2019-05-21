@@ -25,4 +25,20 @@ end
 PuppetSyntax.exclude_paths = exclude_paths
 
 desc 'Run validate, parallel_spec, lint'
-task test: %w(metadata_lint validate parallel_spec lint)
+task test: %w(release_checks)
+
+namespace :check do
+  desc 'Check for trailing whitespace'
+  task :trailing_whitespace do
+    Dir.glob('**/*.md', File::FNM_DOTMATCH).sort.each do |filename|
+      next if filename =~ %r{^((modules|acceptance|\.?vendor|spec/fixtures|pkg)/|REFERENCE.md)}
+      File.foreach(filename).each_with_index do |line, index|
+        if line =~ %r{\s\n$}
+          puts "#{filename} has trailing whitespace on line #{index + 1}"
+          exit 1
+        end
+      end
+    end
+  end
+end
+Rake::Task[:release_checks].enhance ['check:trailing_whitespace']
